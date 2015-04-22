@@ -4,19 +4,18 @@ import org.json.JSONException;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.sample.project.adapter.SampleAdapter;
+import com.sample.project.adapter.NewSampleAdapter;
 import com.sample.project.database.DatabaseHelper;
 
 public class MainActivity extends ActionBarActivity {
 
 	private ListView mListView;
-	private SampleAdapter mSampleAdapter;
+	private NewSampleAdapter mSampleAdapter;
 	private Cursor mCursor;
 	private DatabaseHelper dbHelper;
 
@@ -30,15 +29,15 @@ public class MainActivity extends ActionBarActivity {
 		dbHelper = new DatabaseHelper(MainActivity.this);
 
 		// populate the database
-//		try {
-//			dbHelper.populateDB();
-//		} catch (JSONException json) {
-//			json.printStackTrace();
-//		}
+		try {
+			dbHelper.populateDB();
+		} catch (JSONException json) {
+			json.printStackTrace();
+		}
 		
 		mCursor = dbHelper.getData();
 		
-		mSampleAdapter = new SampleAdapter(this, mCursor);
+		mSampleAdapter = new NewSampleAdapter(this, mCursor, 0);
 		mListView.setAdapter(mSampleAdapter);
 
 	}
