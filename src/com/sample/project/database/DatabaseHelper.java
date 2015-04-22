@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private String json = "{\"chats\": [{\"timestamp\": \"default\", \"msg_id\": \"1\", \"msg_data\": \"Hello, how are you ?\", \"msg_type\": \"0\"}, {\"timestamp\": \"default\", \"msg_id\": \"2\", \"msg_data\": \"http://media.mediatemple.netdna-cdn.com/wp-content/uploads/2013/01/3.jpg\", \"msg_type\": \"1\"}, {\"timestamp\": \"default\", \"msg_id\": \"3\", \"msg_data\": \"How is weather ?\", \"msg_type\": \"0\"}, {\"timestamp\": \"default\", \"msg_id\": \"4\", \"msg_data\": \"http://media.mediatemple.netdna-cdn.com/wp-content/uploads/2013/01/3.jpg\", \"msg_type\": \"1\"}, {\"timestamp\": \"default\", \"msg_id\": \"5\", \"msg_data\": \"http://media.mediatemple.netdna-cdn.com/wp-content/uploads/2013/01/3.jpg\", \"msg_type\": \"1\"}, {\"timestamp\": \"default\", \"msg_id\": \"6\", \"msg_data\": \"Tomorrow is sunday\", \"msg_type\": \"0\"}, {\"timestamp\": \"default\", \"msg_id\": \"7\", \"msg_data\": \"To define one such view, you need to specify it an Android Context. This is usually the Activity where the tabs will be displayed. Supposing that you initialize your tabs in an Activity, simply pass the Activity instance as a Context\", \"msg_type\": \"0\"}, {\"timestamp\": \"default\", \"msg_id\": \"8\", \"msg_data\": \"http://media.mediatemple.netdna-cdn.com/wp-content/uploads/2013/01/3.jpg\", \"msg_type\": \"1\"}]}";
 
 	private static final String DATABASE_CREATE = "CREATE TABLE if not exists "
-			+ TABLE_NAME + " (" + COLUMN_ID + " VARCHAR(20)  ," + COLUMN_DATA
+			+ TABLE_NAME + " (" + COLUMN_ID + " VARCHAR(20) PRIMARY KEY ," + COLUMN_DATA
 			+ " TEXT ," + COLUMN_TYPE + " VARCHAR(2), " + COLUMN_TIME
 			+ " TEXT);";
 

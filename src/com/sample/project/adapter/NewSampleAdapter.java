@@ -30,17 +30,19 @@ public class NewSampleAdapter extends CursorAdapter {
 	@Override
 	public void bindView(View convertView, Context arg1, Cursor cursor) {
 		ImageLoader im = instanceOfVolley.getImageLoader();
-		Log.d("MESG", "her wer ar");
 		String data = cursor.getString(cursor
 				.getColumnIndex(DatabaseHelper.COLUMN_DATA));
-
+		Log.d("MESG", "her wer ar" + data);
+		NetworkImageView nImgView = (NetworkImageView) convertView
+				.findViewById(R.id.img_view);
+		TextView txt = (TextView) convertView.findViewById(R.id.txt_view);
+		
 		if (cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_TYPE))
 				.equals("1")) {
-			NetworkImageView nImgView = (NetworkImageView) convertView
-					.findViewById(R.id.img_view);
 			nImgView.setImageUrl(data, im);
+			txt.setText("");
 		} else {
-			TextView txt = (TextView) convertView.findViewById(R.id.txt_view);
+			nImgView.setImageUrl("", im);
 			txt.setText(data);
 		}
 	}
