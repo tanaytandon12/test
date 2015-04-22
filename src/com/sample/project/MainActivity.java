@@ -30,11 +30,11 @@ public class MainActivity extends ActionBarActivity {
 		dbHelper = new DatabaseHelper(MainActivity.this);
 
 		// populate the database
-		try {
-			dbHelper.populateDB();
-		} catch (JSONException json) {
-			json.printStackTrace();
-		}
+//		try {
+//			dbHelper.populateDB();
+//		} catch (JSONException json) {
+//			json.printStackTrace();
+//		}
 		
 		mCursor = dbHelper.getData();
 		

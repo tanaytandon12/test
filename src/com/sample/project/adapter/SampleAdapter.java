@@ -1,18 +1,19 @@
 package com.sample.project.adapter;
 
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
-import com.sample.project.R;
-import com.sample.project.database.DatabaseHelper;
-import com.sample.project.volley.VolleySingleton;
-
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
+import com.sample.project.R;
+import com.sample.project.database.DatabaseHelper;
+import com.sample.project.volley.VolleySingleton;
 
 public class SampleAdapter extends BaseAdapter {
 
@@ -20,6 +21,7 @@ public class SampleAdapter extends BaseAdapter {
 	private Cursor cursor;
 
 	public SampleAdapter(Context context, Cursor cursor) {
+		Log.d("MSG", "here to gp");
 		this.ctxt = context;
 		this.cursor = cursor;
 	}
@@ -27,7 +29,7 @@ public class SampleAdapter extends BaseAdapter {
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		return 0;
+		return cursor.getCount();
 	}
 
 	@Override
@@ -44,6 +46,7 @@ public class SampleAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		Log.d("MESSAGE", "getView Called");
 		if (convertView == null) {
 			LayoutInflater inflater = (LayoutInflater) ctxt
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -63,6 +66,7 @@ public class SampleAdapter extends BaseAdapter {
 			TextView txt = (TextView) convertView.findViewById(R.id.txt_view);
 			txt.setText(data);
 		}
+		Log.d("TAG", "data = " + data);
 		return convertView;
 	}
 
