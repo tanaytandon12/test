@@ -38,6 +38,7 @@ public class MainActivity extends ActionBarActivity {
 		mCursor = dbHelper.getData();
 		
 		mSampleAdapter = new NewSampleAdapter(this, mCursor, 0);
+		m
 		mListView.setAdapter(mSampleAdapter);
 
 	}
